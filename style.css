@@ -1,0 +1,128 @@
+* {
+    color: white;
+}
+
+
+.navbar-brand img {
+    width: 100px;
+}
+
+body {
+    background-color: black;
+}
+
+.jumbotron, #aboutme {
+    color: white;
+    min-height: 720px;
+}
+
+
+
+/* jumbotron */
+.jumbotron {
+    padding-top: 50px;
+}
+
+
+
+
+.jumbotron .jb1 {
+    animation: slide 2s forwards;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(-1000px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+.jumbotron .row h1 {
+    font-size: 70px;
+}
+
+.jumbotron img {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 10px 10px 15px 5px #222;
+}
+
+.jumbotron .jb2 {
+    display: flex;
+    justify-content: center;
+    animation: fade 3s forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+
+
+/* About me */
+#aboutme {
+    background-color: #000;
+    padding-top: 100px;
+}
+
+#aboutme .about1 {
+    animation: fade2 3s forwards;
+}
+
+@keyframes fade2 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+#aboutme .about2 {
+    animation: slide2 3s forwards;
+}
+
+@keyframes slide2 {
+    from {
+        transform: translateX(1000px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+/* Contact */
+
+#contact {
+    padding-top: 100px;
+    min-height: 700px;
+}
+
+
+/* footer */
+footer p {
+    background-color: #111;
+}
+
+footer {
+    background-color: #111;
+}
+
+
+
+
+
