@@ -2,7 +2,6 @@
     color: white;
 }
 
-
 .navbar-brand img {
     width: 100px;
 }
@@ -11,20 +10,17 @@ body {
     background-color: black;
 }
 
-.jumbotron, #aboutme {
+.jumbotron,
+#aboutme,
+#contact {
     color: white;
     min-height: 720px;
 }
-
-
 
 /* jumbotron */
 .jumbotron {
     padding-top: 50px;
 }
-
-
-
 
 .jumbotron .jb1 {
     animation: slide 2s forwards;
@@ -39,7 +35,6 @@ body {
         transform: translateX(0);
     }
 }
-
 
 .jumbotron .row h1 {
     font-size: 70px;
@@ -67,8 +62,6 @@ body {
         transform: scale(1.1);
     }
 }
-
-
 
 /* About me */
 #aboutme {
@@ -104,14 +97,11 @@ body {
     }
 }
 
-
 /* Contact */
-
 #contact {
     padding-top: 100px;
     min-height: 700px;
 }
-
 
 /* footer */
 footer p {
@@ -121,8 +111,3 @@ footer p {
 footer {
     background-color: #111;
 }
-
-
-
-
-
