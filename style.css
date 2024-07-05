@@ -204,6 +204,7 @@ header {
 
 header .judul {
     display: flex;
+    align-items: center;
 }
 
 header .judul h1 {
@@ -460,6 +461,10 @@ main .right svg {
 @media screen and (max-width: 426px) {
     html {
         font-size: 60%;
+    }
+
+    header {
+        justify-content: space-between;
     }
 
     main {
