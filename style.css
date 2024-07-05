@@ -184,9 +184,16 @@ body.light {
     --primary: #00674f;
 }
 
+
+
+/*  */
+html {
+    font-size: 100%;
+}
+
 body {
     background-color: var(--dark);
-    padding: 0 100px;
+    padding: 0 5%;
 }
 
 header {
@@ -194,6 +201,23 @@ header {
     justify-content: space-between;
     padding: 20px 0;
     height: 40px;
+    align-items: center;
+}
+
+header .judul {
+    display: flex;
+}
+
+header .judul h1 {
+    font-size: 2em;
+}
+
+header .judul .dot {
+    background-color: var(--primary);
+    width: 0.625em;
+    height: 0.625em;
+    border-radius: 50%;
+    margin-left: 5px;
 }
 
 header ul {
@@ -204,6 +228,16 @@ header ul {
 
 header ul li {
     list-style: none;
+    font-size: 1em;
+}
+
+header .toggle-button {
+    display: flex;
+    align-items: center;
+}
+
+header .menu {
+    display: none;
 }
 
 header ul li:hover {
@@ -212,17 +246,7 @@ header ul li:hover {
     font-weight: bold;
 }
 
-.judul {
-    display: flex;
-}
 
-.dot {
-    background-color: var(--primary);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-left: 5px;
-}
 
 main {
     display: flex;
@@ -238,25 +262,25 @@ main .left {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 100px;
+    padding: 0 3%;
 }
 
 main .left div:first-child {
-    font-size: 15px;
+    font-size: 1rem;
     margin-bottom: 30px;
 }
 
 main .left div:nth-child(2) {
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 0;
 }
 
 main .left div:last-child {
-    font-size: 80px;
+    font-size: 5rem;
 }
 
 main .left p {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--grey);
 }
 
@@ -266,24 +290,34 @@ main .right {
     justify-content: center;
     align-items: center;
     position: relative;
+    min-width: 500px;
 }
 
 main .right img {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, .6) 0px 10px 36px 0px, rgba(0, 0, 0, .6) 0px 0px 0px 1px;
     position: relative;
+    width: 20vw;
+    display: block;
     /* Tambahkan ini jika belum ada */
+    z-index: 1;
+    /* Pastikan gambar berada di atas SVG */
 }
 
 main .right svg {
     position: absolute;
-    z-index: -1;
-    transform: scale(.9);
-    top: -30%;
-    /* Adjust the value as needed */
-    right: -1%;
-    /* Adjust the value as needed */
+    z-index: 0;
+    /* Pastikan SVG berada di belakang gambar */
+    transform: translate(-50%, -50%) scale(.9);
+    /* Gunakan translate untuk memposisikan di tengah */
+    top: 50%;
+    left: 50%;
+    width: 40vw;
+    /* Sesuaikan ukuran sesuai kebutuhan */
+    height: auto;
+    /* Pertahankan rasio aspek */
 }
+
 
 
 /* card */
@@ -367,5 +401,86 @@ main .right svg {
 
     100% {
         transform: scale(1);
+    }
+}
+
+
+
+/* Responsive */
+
+/* Laptop */
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 85%;
+    }
+
+    header .judul .dot {
+        margin-bottom: 12px;
+    }
+
+    main .left .card {
+        transform: scale(.9) translateX(-20px);
+    }
+}
+
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 75%;
+    }
+
+    main {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+
+    header ul {
+        gap: 0;
+    }
+
+    header ul li {
+        display: none;
+    }
+
+    header .menu {
+        display: block;
+    }
+
+    main {
+        margin: 50px 0;
+    }
+
+    main .left {
+        transform: translateY(50px);
+    }
+
+
+    main .left .text {
+        max-width: 65%;
+    }
+
+
+    main .right img {
+        width: calc(20vw + 5vw);
+    }
+
+    main .right svg {
+        width: calc(40vw + 10vw);
+    }
+
+    main .left .card {
+        transform: scale(.8) translateX(-40px);
+
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 426px) {
+    html {
+        font-size: 60%;
     }
 }

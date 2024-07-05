@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
@@ -25,22 +26,25 @@
             <li class="poppins-medium">Home</li>
             <li class="poppins-medium">About</li>
             <li class="poppins-medium">Contact</li>
-            <li>
-                <input type="checkbox" class="theme-checkbox" id="theme-checkbox">
-            </li>
         </ul>
+        <div class="toggle-button">
+            <i data-feather="menu" class="menu"></i>
+            <input type="checkbox" class="theme-checkbox" id="theme-checkbox">
+        </div>
     </header>
 
     <main>
         <div class="left">
-            <div>
+            <div style="margin: 0;" class="text">
                 <div class="poppins-medium">Hello,</div>
                 <div class="poppins-semibold">I'm <span style="color: var(--primary);"
                         class="poppins-semibold">Web</span></div>
                 <div class="poppins-bold">Developer</div>
-                <p>Thank you for taking the time to visit my portfolio website. I hope you enjoy your exploration here
+                <p>Thank you for taking the time to visit my portfolio website. I hope you enjoy your exploration
+                    here
                     and feel free to contact me via the available contact or link below if you are interested in
                     collaborating or have any further questions.</p>
+
 
                 <div class="card">
                     <a class="social-link1" href="https://www.instagram.com/moch.afri/" target="_blank">
@@ -84,7 +88,7 @@
                     d="M39.2,-74.6C47.6,-63,49.1,-46.1,55.1,-32.8C61.1,-19.5,71.5,-9.8,77.2,3.3C83,16.4,84,32.7,77.1,44.4C70.2,56.1,55.3,63.1,41.2,69.2C27,75.3,13.5,80.4,1,78.6C-11.5,76.9,-22.9,68.2,-32.2,59.3C-41.4,50.4,-48.5,41.2,-58.2,31.3C-68,21.4,-80.5,10.7,-85.1,-2.7C-89.7,-16,-86.4,-32,-75.6,-40.1C-64.8,-48.3,-46.5,-48.6,-32.7,-57.2C-18.8,-65.8,-9.4,-82.6,3,-87.7C15.4,-92.9,30.7,-86.3,39.2,-74.6Z"
                     transform="translate(100 100)" />
             </svg>
-            <img src="img/profile.jpg" alt="profile" width="300px">
+            <img src="img/profile.jpg" alt="profile">
         </div>
 
     </main>
@@ -93,6 +97,9 @@
 
 
     <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
 </body>
 
 </html>

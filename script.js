@@ -7,3 +7,5 @@ toggler.addEventListener('change', function () {
         document.body.classList.remove('light');
     }
 });
+
+const hamburgerMenu = document.querySelector('.menu'); 
