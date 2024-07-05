@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color: var(--light);
+    box-sizing: border-box;
 }
 
 
@@ -169,8 +170,7 @@
     background-position: 100%;
 }
 
-
-/* style */
+/* Style */
 :root {
     --dark: #1A1919;
     --light: #fff;
@@ -184,9 +184,6 @@ body.light {
     --primary: #00674f;
 }
 
-
-
-/*  */
 html {
     font-size: 100%;
 }
@@ -194,12 +191,13 @@ html {
 body {
     background-color: var(--dark);
     padding: 0 5%;
+    min-height: 2000px;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 40px 0;
     height: 40px;
     align-items: center;
 }
@@ -246,8 +244,6 @@ header ul li:hover {
     font-weight: bold;
 }
 
-
-
 main {
     display: flex;
     align-items: center;
@@ -255,6 +251,7 @@ main {
     height: 80vh;
     padding: 20px 0;
     position: relative;
+    flex-wrap: wrap; /* Tambahkan ini untuk menghindari overflow */
 }
 
 main .left {
@@ -290,7 +287,7 @@ main .right {
     justify-content: center;
     align-items: center;
     position: relative;
-    min-width: 500px;
+    min-width: 300px; /* Sesuaikan ukuran minimum */
 }
 
 main .right img {
@@ -299,28 +296,20 @@ main .right img {
     position: relative;
     width: 20vw;
     display: block;
-    /* Tambahkan ini jika belum ada */
     z-index: 1;
-    /* Pastikan gambar berada di atas SVG */
 }
 
 main .right svg {
     position: absolute;
     z-index: 0;
-    /* Pastikan SVG berada di belakang gambar */
     transform: translate(-50%, -50%) scale(.9);
-    /* Gunakan translate untuk memposisikan di tengah */
     top: 50%;
     left: 50%;
     width: 40vw;
-    /* Sesuaikan ukuran sesuai kebutuhan */
     height: auto;
-    /* Pertahankan rasio aspek */
 }
 
-
-
-/* card */
+/* Card */
 .card {
     display: flex;
     height: 70px;
@@ -356,7 +345,6 @@ main .right svg {
     transition: 0.25s;
     border-radius: 50px;
 }
-
 
 .card svg {
     transform: scale(1);
@@ -404,8 +392,6 @@ main .right svg {
     }
 }
 
-
-
 /* Responsive */
 
 /* Laptop */
@@ -422,7 +408,6 @@ main .right svg {
         transform: scale(.9) translateX(-20px);
     }
 }
-
 
 /* Tablet */
 @media screen and (max-width: 768px) {
@@ -455,11 +440,9 @@ main .right svg {
         transform: translateY(50px);
     }
 
-
     main .left .text {
         max-width: 65%;
     }
-
 
     main .right img {
         width: calc(20vw + 5vw);
@@ -471,16 +454,24 @@ main .right svg {
 
     main .left .card {
         transform: scale(.8) translateX(-40px);
-
-
     }
-
-
 }
-
 
 @media screen and (max-width: 426px) {
     html {
         font-size: 60%;
     }
+
+    main {
+        height: auto; /* Sesuaikan tinggi main agar tidak overflow */
+    }
 }
+
+/* Optional : jika light/dark mode ingin sesuai dengan system (harus diperbaiki)*/
+/* @media (prefers-color-scheme: light) {
+    body {
+        background-color: #dcdcdc;
+        color: #1A1919;
+    }
+
+} */
