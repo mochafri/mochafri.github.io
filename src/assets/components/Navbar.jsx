@@ -2,11 +2,19 @@ import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("#Hero");
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
+
+    const navItems = [
+        { id: "#Hero", label: "Home" },
+        { id: "#AboutMe", label: "About Me" },
+        { id: "#project", label: "Project" },
+        { id: "#contact", label: "Contact" }
+    ];
 
     // Tutup dropdown jika klik di luar elemen dropdown
     useEffect(() => {
@@ -21,6 +29,33 @@ const Navbar = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
+    }, []);
+
+    // Track active section via Intersection Observer
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px",
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(`#${entry.target.id}`);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        const sections = ["Hero", "AboutMe", "project", "contact"];
+        sections.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
     }, []);
 
     return (
@@ -62,19 +97,27 @@ const Navbar = () => {
                         className={`font-medium text-white flex flex-col md:flex-row p-4 md:p-0 ${isOpen ? "mt-4 border border-gray-100 rounded-lg  bg-background dark:border-gray-700" : " gap-10 font-avenirMedium text-sm"
                             }`}
                     >
-                        <li>
-                            <a href="#Hero" className="block py-2 px-3 text-white  rounded md:bg-transparent hover:bg-secondary md:p-0  " aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#AboutMe" className="block py-2 px-3 text-white  md:border-0  md:p-0 dark:text-white  hover:bg-secondary dark:hover:text-white ">About Me</a>
-                        </li>
-                        <li>
-                            <a href="#project" className="block py-2 px-3 text-white md:border-0  md:p-0 dark:text-white  hover:bg-secondary dark:hover:text-white ">Project</a>
-                        </li>
-
-                        <li>
-                            <a href="#contact" className="block py-2 px-3 text-white md:border-0  md:p-0 dark:text-white  hover:bg-secondary dark:hover:text-white ">Contact</a>
-                        </li>
+                        {navItems.map((item) => {
+                            const isActive = activeSection === item.id;
+                            return (
+                                <li key={item.id}>
+                                    <a 
+                                        href={item.id} 
+                                        className={`relative py-1.5 font-avenirMedium text-sm transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-secondary after:transition-transform after:duration-300 after:origin-left block md:inline ${
+                                            isActive 
+                                                ? "text-secondary after:scale-x-100" 
+                                                : "text-white/70 hover:text-secondary after:scale-x-0 hover:after:scale-x-100"
+                                        }`}
+                                        onClick={() => {
+                                            setActiveSection(item.id);
+                                            setIsOpen(false);
+                                        }}
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </div>
