@@ -60,71 +60,70 @@ function AboutMe() {
 
 
     return (
-        <section id="AboutMe" className="p-5 scroll-mt-28 sm:mt-10 lg:mt-56">
-            <div className="container">
+        <section id="AboutMe" className="mt-32 sm:mt-40 lg:mt-56 px-5 scroll-mt-28 flex justify-center">
+            <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center">
-                    <div className="w-full self-center sm:grid sm:grid-cols-2 gap-5 sm:max-w-[80%]">
-                        <div className="judul order-2" ref={(el) => sectionsRef.current.push(el)}>
+                    <div className="w-full sm:max-w-[85%] lg:max-w-[80%]">
+                        {/* Title at the top */}
+                        <div className="judul w-full text-center mb-12" ref={(el) => sectionsRef.current.push(el)}>
                             <h1 className="shadow-text">About Me</h1>
-                            <h1 className="section-text">About Me</h1>
-                            <h1 className="shadow-text">About Me</h1>
+                            <h1 className="section-text -mt-7">About Me</h1>
                         </div>
 
-                        <div
-                            ref={(el) => sectionsRef.current.push(el)}
-                            className="who mt-20 p-5 rounded-[20px] shadow-custom-dark order-1 sm:mt-0"
-                        >
-                            <h2 className="font-avenir85Heavy text-2xl text-center mb-3">Who Am I?</h2>
-                            <p className="font-avenir55Roman text-xs">
-                                Hello, my name is Muhammad Afrizal, a front-end developer with a D3 degree in Software Application Engineering from Telkom University. I am passionate about crafting visually appealing and user-friendly web interfaces that enhance the digital experience. With a strong foundation in software engineering and a focus on front-end development, I am dedicated to creating websites that are both functional and aesthetically pleasing. Thank you for visiting my portfolio, and I look forward to connecting!
-                            </p>
-                        </div>
-                        <div
-                            ref={(el) => sectionsRef.current.push(el)}
-                            className="skills mt-10 p-5 rounded-[20px] shadow-custom-dark order-3 sm:mt-5 h-[150px] lg:h-full flex flex-col justify-center"
-                        >
-                            <h2 className="font-avenir85Heavy text-2xl text-center mb-3">Skills</h2>
-                            <div className="skill flex justify-between">
-                                <img src={html5} alt="html" className="w-[15%]" />
-                                <img src={css3} alt="html" className="w-[15%]" />
-                                <img src={javascript} alt="html" className="w-[15%]" />
-                                <img src={bootstrap} alt="html" className="w-[15%]" />
-                                <img src={tailwindcss} alt="html" className="w-[15%]" />
-                                <img src={react} alt="html" className="w-[15%]" />
+                        {/* 2-Column Grid for Content */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                            {/* Left Column (Who Am I & Skills) */}
+                            <div className="flex flex-col gap-6">
+                                <div
+                                    ref={(el) => sectionsRef.current.push(el)}
+                                    className="who p-6 sm:p-8 rounded-[24px] bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-2xl flex-1 transform hover:-translate-y-1 hover:border-secondary/20 transition-all duration-300 hover:shadow-secondary/5"
+                                >
+                                    <h2 className="font-avenir85Heavy text-2xl mb-4 text-white/90">Who Am I?</h2>
+                                    <p className="font-avenir55Roman text-sm leading-relaxed text-white/80">
+                                        Hello, my name is Muhammad Afrizal, a front-end developer with a D3 degree in Software Application Engineering from Telkom University. I am passionate about crafting visually appealing and user-friendly web interfaces that enhance the digital experience. With a strong foundation in software engineering and a focus on front-end development, I am dedicated to creating websites that are both functional and aesthetically pleasing. Thank you for visiting my portfolio, and I look forward to connecting!
+                                    </p>
+                                </div>
+
+                                <div
+                                    ref={(el) => sectionsRef.current.push(el)}
+                                    className="skills p-6 sm:p-8 rounded-[24px] bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-2xl transform hover:-translate-y-1 hover:border-secondary/20 transition-all duration-300 hover:shadow-secondary/5"
+                                >
+                                    <h2 className="font-avenir85Heavy text-2xl mb-4 text-white/90">Skills</h2>
+                                    <div className="skill flex justify-between items-center mt-2">
+                                        <img src={html5} alt="html" className="w-[12%] sm:w-[13%] hover:scale-125 transition-transform duration-300 cursor-pointer hover:drop-shadow-[0_0_8px_rgba(221,126,113,0.5)]" />
+                                        <img src={css3} alt="css" className="w-[12%] sm:w-[13%] hover:scale-125 transition-transform duration-300 cursor-pointer hover:drop-shadow-[0_0_8px_rgba(221,126,113,0.5)]" />
+                                        <img src={javascript} alt="javascript" className="w-[12%] sm:w-[13%] hover:scale-125 transition-transform duration-300 cursor-pointer hover:drop-shadow-[0_0_8px_rgba(221,126,113,0.5)]" />
+                                        <img src={bootstrap} alt="bootstrap" className="w-[12%] sm:w-[13%] hover:scale-125 transition-transform duration-300 cursor-pointer hover:drop-shadow-[0_0_8px_rgba(221,126,113,0.5)]" />
+                                        <img src={tailwindcss} alt="tailwindcss" className="w-[12%] sm:w-[13%] hover:scale-125 transition-transform duration-300 cursor-pointer hover:drop-shadow-[0_0_8px_rgba(221,126,113,0.5)]" />
+                                        <img src={react} alt="react" className="w-[12%] sm:w-[13%] hover:scale-125 transition-transform duration-300 cursor-pointer hover:drop-shadow-[0_0_8px_rgba(221,126,113,0.5)]" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div
-                            ref={(el) => sectionsRef.current.push(el)}
-                            className="gallery mt-10 p-5 rounded-[20px] shadow-custom-dark order-4 h-[300px] sm:-mt-32 sm:ms-5 lg:-mt-16"
-                        >
-                            <h2 className="font-avenir85Heavy text-2xl text-center mb-3">Gallery</h2>
-                            {/* <div className="frame w-full h-[85%] overflow-hidden rounded-xl">
-                                <img
-                                    src={gallery1}
-                                    alt="gambar"
-                                    className="filter grayscale hover:grayscale-0 transition duration-500 bg-cover w-full h-full object-cover object-bottom"
-                                />
-                            </div> */}
 
-
-                            <div id="default-carousel" className="relative w-full" data-carousel="slide">
-                                <div className="relative rounded-lg md:h-96">
-                                    {/* Carousel Items */}
-                                    {carouselItems.map((src, index) => (
-                                        <div
-                                            key={index}
-                                            className={`absolute sm:h-[56%] overflow-hidden rounded-xl w-full duration-700 ease-in-out transition-opacity  ${index === currentIndex ? "opacity-100 " : "opacity-0"
-                                                } `}
-                                        >
-                                            <img
-                                                src={src}
-                                                alt={`Carousel ${index + 1}`}
-                                                className="block transition duration-100 bg-cover w-full h-full object-cover object-bottom z-10"
-                                            />
-                                        </div>
-                                    ))}
-
-
+                            {/* Right Column (Gallery Carousel) */}
+                            <div
+                                ref={(el) => sectionsRef.current.push(el)}
+                                className="gallery p-6 sm:p-8 rounded-[24px] bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-2xl transform hover:-translate-y-1 hover:border-secondary/20 transition-all duration-300 hover:shadow-secondary/5 flex flex-col justify-between"
+                            >
+                                <h2 className="font-avenir85Heavy text-2xl mb-4 text-white/90">Gallery</h2>
+                                <div id="default-carousel" className="relative w-full flex-1 min-h-[220px] sm:min-h-[280px]" data-carousel="slide">
+                                    <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden">
+                                        {/* Carousel Items */}
+                                        {carouselItems.map((src, index) => (
+                                            <div
+                                                key={index}
+                                                className={`absolute inset-0 w-full h-full overflow-hidden rounded-2xl duration-700 ease-in-out transition-opacity ${
+                                                    index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                                                }`}
+                                            >
+                                                <img
+                                                    src={src}
+                                                    alt={`Carousel ${index + 1}`}
+                                                    className="w-full h-full object-cover object-bottom z-10"
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>

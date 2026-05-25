@@ -43,53 +43,74 @@ export default function Contact() {
 
 
     return (
-        <section id="contact" className="mt-20 px-10 lg:max-w-[80%] mx-auto lg:my-40 scroll-mt-28 lg:">
-            <div className="container">
-                <div className="flex flex-wrap">
+        <section id="contact" className="mt-32 sm:mt-40 lg:mt-56 px-5 sm:px-10 lg:max-w-[80%] mx-auto scroll-mt-28">
+            <div className="container mx-auto">
+                <div className="flex flex-wrap justify-center">
                     <div className="w-full">
-                        <div className="judul w-full sm:w-1/2" ref={(el) => sectionsRef.current.push(el)}>
-                            <h1 className="font-sharpSemiBold25 text-center text-5xl opacity-10">Contact</h1>
-                            <div className="section-text -mt-5 text-center">Contact</div>
+                        <div className="judul w-full text-center mb-10" ref={(el) => sectionsRef.current.push(el)}>
+                            <h1 className="font-sharpSemiBold25 text-5xl opacity-10">Contact</h1>
+                            <div className="section-text -mt-7 text-center">Contact</div>
                         </div>
                         {datas.map((data, index) => (
-                            <div className="sub-section mt-10 sm:flex sm:mt-28 md:mt-20" key={index}>
-                                <div className="left w-full flex flex-col gap-16 sm:w-1/2" ref={(el) => sectionsRef.current.push(el)}>
+                            <div 
+                                className="sub-section mt-10 p-6 sm:p-10 md:p-12 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-2xl flex flex-col md:flex-row gap-10 md:gap-16" 
+                                key={index}
+                            >
+                                <div className="left w-full flex flex-col gap-6 md:w-1/2" ref={(el) => sectionsRef.current.push(el)}>
                                     {[
                                         { icon: Instagram, title: 'Instagram', value: data.instagram, link: 'https://www.instagram.com/moch.afri/' },
                                         { icon: Phone, title: 'Phone', value: data.phone, link: 'https://wa.me/6282126030612' },
                                         { icon: Letter, title: 'Email', value: data.email, link: 'mailto:afrizalmuhammad656@gmail.com' },
                                         { icon: LinkedIn, title: 'LinkedIn', value: data.linkedIn },
                                     ].map(({ icon, title, value, link }, i) => (
-                                        <div className="account-item flex items-center gap-5 hover:bg-blue-500 w-full rounded-lg p-2 transition duration-500 lg:w-[80%]" key={i}>
-                                            <img src={icon} alt={title.toLowerCase()} width={50} />
+                                        <div className="account-item group flex items-center gap-5 bg-white/[0.01] border border-white/5 hover:border-secondary/30 hover:bg-white/[0.04] w-full rounded-2xl p-4 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]" key={i}>
+                                            <div className="p-3 bg-white/[0.03] rounded-xl group-hover:bg-secondary/10 transition-colors duration-300">
+                                                <img src={icon} alt={title.toLowerCase()} className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
+                                            </div>
                                             <div className="account">
-                                                <h5 className="text-xl">{title}</h5>
+                                                <h5 className="text-lg font-avenir85Heavy text-white/90">{title}</h5>
                                                 {link ? (
-                                                    <a href={link} target="_blank" className="cursor-pointer hover:text-secondary">
-                                                        <p className="text-base">{value}</p>
+                                                    <a href={link} target="_blank" rel="noopener noreferrer" className="cursor-pointer text-white/60 hover:text-secondary transition-colors duration-200">
+                                                        <p className="text-sm font-avenir55Roman">{value}</p>
                                                     </a>
                                                 ) : (
-                                                    <p className="text-base">{value}</p>
+                                                    <p className="text-sm font-avenir55Roman text-white/60">{value}</p>
                                                 )}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
-                                <form className="right w-full mt-28 sm:w-1/2 sm:mt-0 sm:border-l sm:ps-20" ref={(el) => sectionsRef.current.push(el)}>
-                                    <h3 className="text-center text-xl lg:text-2xl" >Send me a message</h3>
-                                    <div className="email mt-10">
-                                        <label htmlFor="email" className="block text-lg">Email</label>
-                                        <input type="text" id="email" className="w-full mt-3 rounded-lg h-8 ps-3 text-background" placeholder="youremail@gmail.com" />
+                                <form className="right w-full mt-6 md:mt-0 md:w-1/2 md:border-l md:border-white/10 md:ps-12 flex flex-col justify-between" ref={(el) => sectionsRef.current.push(el)}>
+                                    <div>
+                                        <h3 className="text-center md:text-left text-2xl font-avenir85Heavy mb-8 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">Send me a message</h3>
+                                        <div className="email">
+                                            <label htmlFor="email" className="block text-sm font-avenir55Roman text-white/70">Email</label>
+                                            <input 
+                                                type="text" 
+                                                id="email" 
+                                                className="w-full mt-2 rounded-xl h-12 ps-4 bg-white/[0.03] border border-white/10 focus:border-secondary/80 focus:ring-1 focus:ring-secondary/80 outline-none text-white transition-all duration-300 placeholder-white/30" 
+                                                placeholder="youremail@gmail.com" 
+                                            />
+                                        </div>
+                                        <div className="message mt-6">
+                                            <label htmlFor="message" className="block text-sm font-avenir55Roman text-white/70">Message</label>
+                                            <textarea 
+                                                id="message" 
+                                                className="w-full mt-2 rounded-xl ps-4 py-3 bg-white/[0.03] border border-white/10 focus:border-secondary/80 focus:ring-1 focus:ring-secondary/80 outline-none text-white transition-all duration-300 placeholder-white/30" 
+                                                placeholder="Write your message here..." 
+                                                rows={5} 
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="message mt-8">
-                                        <label htmlFor="message" className="block text-lg">Message</label>
-                                        <textarea id="message" className="w-full mt-3 rounded-lg ps-3 text-background py-1" placeholder="write your message here..." rows={5} />
-                                    </div>
-                                    <button type="submit" className="rounded-xl bg-white text-background px-5 py-1 mt-3 font-semibold">Send</button>
+                                    <button 
+                                        type="submit" 
+                                        className="w-full sm:w-auto self-end rounded-xl bg-secondary text-white hover:bg-secondary/95 px-8 py-3 mt-8 font-avenir85Heavy shadow-lg shadow-secondary/15 hover:shadow-secondary/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                                    >
+                                        Send Message
+                                    </button>
                                 </form>
                             </div>
                         ))}
-
                     </div>
                 </div>
             </div>

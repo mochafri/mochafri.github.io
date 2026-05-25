@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return (
-        <footer className="mt-20">
+        <footer className="mt-32 sm:mt-40 lg:mt-48">
             <div className="containers">
                 <div className="flex flex-wrap">
                     <div className="w-full text-center bg-white py-1">
